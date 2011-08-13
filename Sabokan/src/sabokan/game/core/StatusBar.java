@@ -10,7 +10,7 @@ import sabokan.game.entities.items.Usable;
 import sabokan.game.utils.Lock;
 
 /**
- *
+ * The status bar displayed on top of the game
  * @author anaka
  */
 public class StatusBar {
@@ -19,6 +19,9 @@ public class StatusBar {
     private final Image statusBarTexture;
     private final Image sideBarTexture;
 
+    /**
+     * Default constructor for the Statusbar
+     */
     public StatusBar() {
         try {
             Lock lock = new Lock();
@@ -36,22 +39,41 @@ public class StatusBar {
         }
     }
 
+    /**
+     * Delegates to the inventory
+     * @param item
+     */
     public void addCollectedItem(Item item) {
         inventory.add(item);
     }
 
+    /**
+     * Delegates to the inventory
+     * @param item
+     */
     public void removeCollectedItem(Item item) {
         inventory.remove(item);
     }
 
+    /**
+     * Retrieves the inventory of thet player
+     * @return
+     */
     public Inventory getInventory() {
         return inventory;
     }
 
+    /**
+     * Purges the inventory
+     */
     public void initialize() {
         inventory.clear();
     }
 
+    /**
+     * Paints both the status bar and the side bar
+     * @param g
+     */
     public void paint(Graphics2D g) {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.drawImage(statusBarTexture, 0, 0, statusBarTexture.getWidth(null), statusBarTexture.getHeight(null), null);
@@ -60,6 +82,10 @@ public class StatusBar {
         paintStatusBarItems(g);
     }
 
+    /**
+     * Paints the items that should be displayed inside the side bar
+     * @param g
+     */
     private void paintSideBarItems(Graphics2D g) {
         int x = 15;
         int y;
@@ -76,6 +102,10 @@ public class StatusBar {
         }
     }
 
+    /**
+     * Paints the items that should be displayed in the status bar
+     * @param g
+     */
     private void paintStatusBarItems(Graphics2D g) {
         g.setFont(Constants.STATUSBAR_FONT);
         g.setColor(Constants.STATUSBAR_TEXT_COLOR);

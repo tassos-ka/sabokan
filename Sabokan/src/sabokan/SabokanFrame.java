@@ -189,8 +189,8 @@ private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                             break;
                         }
                     }
-                } catch (Exception ex) {
-                    Trace.error(ex);
+                } catch (Exception e) {
+                    Trace.error(e);
                 }
 
                 try {

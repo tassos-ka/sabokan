@@ -4,7 +4,7 @@ import sabokan.game.entities.characters.*;
 import sabokan.game.entities.characters.impl.*;
 
 /**
- *
+ * An enumarator which contains all the Char Classes
  * @author anaka
  */
 public enum CharacterEnum {

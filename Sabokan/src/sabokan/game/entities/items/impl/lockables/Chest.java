@@ -1,6 +1,5 @@
 package sabokan.game.entities.items.impl.lockables;
 
-import java.awt.Graphics2D;
 import java.awt.Image;
 import sabokan.game.Constants;
 import sabokan.game.entities.items.impl.collectables.AbstractCollectable;
@@ -23,7 +22,6 @@ public class Chest extends AbstractLockable {
     @Override
     public Image getTexture() {
         return isLocked() ? lockedTexture : unlockedTexture;
-
     }
 
     @Override

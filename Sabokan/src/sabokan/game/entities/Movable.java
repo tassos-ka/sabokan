@@ -4,37 +4,64 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- *
+ * Abstract class that defines an object able to move inside the canvas of the game
  * @author anaka
  */
 public abstract class Movable extends Positionable implements KeyListener {
 
+    /**
+     * Current state of the movealbe object
+     */
     protected transient State state = State.IDLE;
 
+    /**
+     * Default constructor
+     * @param x
+     * @param y
+     */
     public Movable(int x, int y) {
         super(x, y);
     }
 
+    /**
+     * Moves up one tile
+     */
     public void moveUp() {
         move(Direction.UP);
     }
 
+    /**
+     * Moves down one tile
+     */
     public void moveDown() {
         move(Direction.DOWN);
     }
 
+    /**
+     * Moves left one tile
+     */
     public void moveLeft() {
         move(Direction.LEFT);
     }
 
+    /**
+     * Moves right one tile
+     */
     public void moveRight() {
         move(Direction.RIGHT);
     }
 
+    /**
+     * Moves to the given direction
+     * @param dir
+     */
     public void move(Direction dir) {
         position = Direction.movePosition(position, dir);
     }
 
+    /**
+     * Updates the position based on the state of the movable object
+     */
     protected void updatePosition() {
         switch (state) {
             case MOVING_UP:
@@ -54,6 +81,10 @@ public abstract class Movable extends Positionable implements KeyListener {
         }
     }
 
+    /**
+     * Listens to the keyboard and updates the state of the object
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e != null) {
@@ -79,16 +110,27 @@ public abstract class Movable extends Positionable implements KeyListener {
         }
     }
 
+    /**
+     * Sets the state to IDLE
+     * @param e
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         state = State.IDLE;
     }
 
+    /**
+     * This does nothing
+     * @param e
+     */
     @Override
     public void keyTyped(KeyEvent e) {
         //i'm deaf
     }
 
+    /**
+     * The states that a movable object can have
+     */
     public static enum State {
 
         IDLE(null),

@@ -4,7 +4,7 @@ import sabokan.game.entities.boxes.*;
 import sabokan.game.entities.boxes.impl.*;
 
 /**
- *
+ * An enumarator which contains all the Box Classes
  * @author anaka
  */
 public enum BoxEnum {

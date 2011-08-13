@@ -1,5 +1,6 @@
 package sabokan.game.entities.items.impl.lockables;
 
+import sabokan.game.entities.items.Container;
 import sabokan.game.entities.items.Item;
 import sabokan.game.entities.items.Lockable;
 import sabokan.game.entities.items.impl.collectables.AbstractCollectable;
@@ -10,7 +11,7 @@ import sabokan.game.events.CollectItemEvent;
  *
  * @author anaka
  */
-public abstract class AbstractLockable extends Item implements Lockable {
+public abstract class AbstractLockable extends Item implements Lockable, Container {
 
     private boolean isLocked = true;
     

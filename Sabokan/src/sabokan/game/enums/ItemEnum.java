@@ -6,7 +6,7 @@ import sabokan.game.entities.items.impl.imovables.*;
 import sabokan.game.entities.items.impl.lockables.*;
 
 /**
- *
+ * An enumarator which contains all the Item Classes
  * @author anaka
  */
 public enum ItemEnum {

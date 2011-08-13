@@ -9,7 +9,7 @@ import sabokan.game.Constants;
 import sabokan.game.entities.Renderable;
 
 /**
- *
+ * This class is responsible for displaying dialogs
  * @author anaka
  */
 public class DialogCarrier implements Renderable {
@@ -20,6 +20,10 @@ public class DialogCarrier implements Renderable {
 
     private String text;
 
+    /**
+     * Create a new instance that will render the given text
+     * @param text
+     */
     public DialogCarrier(String text) {
         if (text != null && text.length() > 0) {
             this.text = text;
@@ -29,15 +33,27 @@ public class DialogCarrier implements Renderable {
             throw new IllegalArgumentException("DialogCarrier should carry a dialog!");
         }
     }
-    
+
+    /**
+     * Retrieves the text associated with this instance
+     * @return
+     */
     public String getText() {
         return text;
     }
 
+    /**
+     * Sets teh dialog text
+     * @param text
+     */
     public void setText(String text) {
         this.text = text;
     }
 
+    /**
+     * Retrieves the texture that should be rendered
+     * @return
+     */
     @Override
     public Image getTexture() {
         if (texture == null) {
@@ -47,6 +63,11 @@ public class DialogCarrier implements Renderable {
         }
     }
 
+    /**
+     * Prepares the texture for rendering async
+     * @param dim
+     * @throws InterruptedException
+     */
     public void prepare(Dimension dim) throws InterruptedException {
         if (dim != null && dim.width > 0 && dim.height > 0) {
             currentFrame = 0;
@@ -66,10 +87,18 @@ public class DialogCarrier implements Renderable {
         g.drawImage(getTexture(), 0, 0, null);
    }
 
+    /**
+     * Gets the total number of frames for the rendering of the dialog
+     * @return
+     */
     public int getTotalFrames() {
         return totalFrames;
     }
 
+    /**
+     * Paints the next frame
+     * @return
+     */
     public boolean nextFrame() {
         if (currentFrame++ < totalFrames + 3) {
             paintText(Math.min(totalFrames, currentFrame));
@@ -77,7 +106,11 @@ public class DialogCarrier implements Renderable {
         }
         return false;
     }
-    
+
+    /**
+     * Paints the text on the texture
+     * @param length
+     */
     private void paintText(int length) {
         String sub = text.substring(0, length);
         Graphics2D g2d = (Graphics2D)texture.getGraphics();
@@ -86,7 +119,11 @@ public class DialogCarrier implements Renderable {
         g2d.setPaint(Constants.DIALOG_TEXT_COLOR);
         g2d.drawString(sub, Constants.IMAGE_WIDTH + 20, 50);
     }
-    
+
+    /**
+     * Retrieves the default time in ms between frames
+     * @return
+     */
     public int getTimeBetweenFrames() {
         return timeBetweenFrames;
     }

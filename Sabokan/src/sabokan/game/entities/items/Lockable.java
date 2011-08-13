@@ -10,7 +10,5 @@ public interface Lockable extends Openable {
     
     public boolean isLocked();
     
-    public <T extends Item, Collectable> T contains();
-    
     public <T extends Item, Collectable> T unlocksWith();
 }
