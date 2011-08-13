@@ -56,24 +56,26 @@ public abstract class Movable extends Positionable implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_UP:
-                state = State.MOVING_UP;
-                break;
-            case KeyEvent.VK_DOWN:
-                state = State.MOVING_DOWN;
-                break;
-            case KeyEvent.VK_LEFT:
-                state = State.MOVING_LEFT;
-                break;
-            case KeyEvent.VK_RIGHT:
-                state = State.MOVING_RIGHT;
-                break;
-            case KeyEvent.VK_SPACE:
-                state = State.TALKING;
-                break;
-            default:
-                state = State.IDLE;
+        if (e != null) {
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_UP:
+                    state = State.MOVING_UP;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    state = State.MOVING_DOWN;
+                    break;
+                case KeyEvent.VK_LEFT:
+                    state = State.MOVING_LEFT;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    state = State.MOVING_RIGHT;
+                    break;
+                case KeyEvent.VK_SPACE:
+                    state = State.TALKING;
+                    break;
+                default:
+                    state = State.IDLE;
+            }
         }
     }
 
@@ -104,6 +106,7 @@ public abstract class Movable extends Positionable implements KeyListener {
         public boolean shouldUpdatePosition() {
             return dir != null;
         }
+
         public Direction getMomentum() {
             return dir;
         }
