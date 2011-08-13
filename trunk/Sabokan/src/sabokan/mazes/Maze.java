@@ -170,13 +170,15 @@ public class Maze {
         final Random rand = new Random();
         int endX = rand.nextInt(size);
         int endY = rand.nextInt(size);
-
+        int off = 0;
         do {
             endX = endX % 2 == 1 ? endX + 1 : endX;
+            endX += off;
             endX = endX < size ? endX : 0;
 
             endY = endY % 2 == 1 ? endY + 1 : endY;
             endY = endY < size ? endY : 0;
+            off++;
         } while (endX == this.startX && endY == this.startY);
 
         maze[endX][endY] = end;

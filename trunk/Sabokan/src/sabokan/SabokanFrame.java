@@ -1,6 +1,7 @@
 package sabokan;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.JDialog;
@@ -12,12 +13,12 @@ import sabokan.game.Trace;
  * Container class that renders the GamePanel
  * @author anaka
  */
-public class SokobanFrame extends javax.swing.JFrame {
+public class SabokanFrame extends javax.swing.JFrame {
 
     /** 
      * Creates new form SokobanFrame
      */
-    public SokobanFrame() {
+    public SabokanFrame() {
         initComponents();
         this.mainScrollPane.addKeyListener(gamePanel.getGameKeylistener());
         this.mainScrollPane.setFocusable(true);
@@ -43,7 +44,7 @@ public class SokobanFrame extends javax.swing.JFrame {
      * @param dim 
      */
     private void resizeToFitLevel(Dimension dim) {
-        Dimension newDimension = new Dimension(dim.width + 50, dim.height + 50);
+        Dimension newDimension = new Dimension(Math.min(dim.width + 50, Toolkit.getDefaultToolkit().getScreenSize().width), Math.min(dim.height + 50, Toolkit.getDefaultToolkit().getScreenSize().height));
         mainScrollPane.setMinimumSize(newDimension);
         pack();
     }
@@ -68,7 +69,7 @@ public class SokobanFrame extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SokobanX");
+        setTitle("sabokanX");
 
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
@@ -128,11 +129,11 @@ public class SokobanFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+            .addComponent(mainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+            .addComponent(mainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
         );
 
         pack();
@@ -193,7 +194,7 @@ private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                 }
 
                 try {
-                    new SokobanFrame().setVisible(true);
+                    new SabokanFrame().setVisible(true);
                 } catch (Exception e) {
                     Trace.error(e);
                 }

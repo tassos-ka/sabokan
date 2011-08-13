@@ -18,6 +18,5 @@ public class OrangeGem extends AbstractCollectable {
     @Override
     public Image getTexture() {
         return texture;
-    }
-    
+    } 
 }
