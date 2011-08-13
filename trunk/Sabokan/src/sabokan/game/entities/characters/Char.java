@@ -10,7 +10,7 @@ import sabokan.game.events.DialogEvent;
 import sabokan.game.utils.DialogCarrier;
 
 /**
- *
+ * Abstract class that all interactable entities should implement
  * @author anaka
  */
 public abstract class Char extends Positionable implements Renderable {

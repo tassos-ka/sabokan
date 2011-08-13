@@ -4,7 +4,7 @@ import sabokan.game.entities.players.*;
 import sabokan.game.entities.players.impl.*;
 
 /**
- *
+ * An enumarator which contains all the Player Classes
  * @author anaka
  */
 public enum PlayerEnum {

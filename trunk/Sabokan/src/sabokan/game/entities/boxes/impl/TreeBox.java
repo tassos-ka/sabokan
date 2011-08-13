@@ -17,11 +17,6 @@ public class TreeBox extends Box{
     }
 
     @Override
-    public void update() {
-        //zzzz
-    }
-
-    @Override
     public Image getTexture() {
         return texture;
     }

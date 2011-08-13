@@ -14,11 +14,12 @@ public abstract class Box extends Pushable implements Renderable {
     public Box(int x, int y) {
         super(x, y);
     }
-    
-    public abstract void update();
+
+    public void update() {
+    }
 
     @Override
     public void paint(Graphics2D g) {
-        g.drawImage(getTexture(), position.x * Constants.DX, position.y * Constants.DY -Constants.OFFSET, null);
+        g.drawImage(getTexture(), position.x * Constants.DX, position.y * Constants.DY - Constants.OFFSET, null);
     }
 }

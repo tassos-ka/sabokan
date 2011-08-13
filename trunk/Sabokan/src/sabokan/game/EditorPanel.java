@@ -7,7 +7,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import javax.swing.JPanel;
-import sabokan.game.core.SokobanLevelEditor;
+import sabokan.game.core.SabokanLevelEditor;
 import sabokan.game.entities.boxes.Box;
 import sabokan.game.entities.characters.Char;
 import sabokan.game.entities.items.Item;
@@ -20,7 +20,7 @@ import sabokan.game.entities.tiles.Tile;
  */
 public class EditorPanel extends JPanel {
 
-    private SokobanLevelEditor editor;
+    private SabokanLevelEditor editor;
     
     public EditorPanel() {
         initEditorPanel();
@@ -43,7 +43,7 @@ public class EditorPanel extends JPanel {
     
     
     private void initEditorPanel() {
-        editor = new SokobanLevelEditor(this);
+        editor = new SabokanLevelEditor(this);
         this.setFocusable(true);
     }
 

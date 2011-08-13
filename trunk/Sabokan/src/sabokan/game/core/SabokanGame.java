@@ -25,7 +25,7 @@ import sabokan.game.utils.Lock;
  *
  * @author anaka
  */
-public class SokobanGame {
+public class SabokanGame {
 
     private Player player;
     private List<Box> boxes;
@@ -40,7 +40,7 @@ public class SokobanGame {
     private volatile DialogCarrier currentDialog;
     private final StatusBar statusBar = new StatusBar();
 
-    public SokobanGame(GamePanel container) {
+    public SabokanGame(GamePanel container) {
         if (container != null) {
             Trace.info("Started");
             this.container = container;

@@ -17,11 +17,6 @@ public class RockBox extends Box{
     }
 
     @Override
-    public void update() {
-        //zzzz
-    }
-
-    @Override
     public Image getTexture() {
         return texture;
     }    

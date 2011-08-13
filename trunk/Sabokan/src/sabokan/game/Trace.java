@@ -1,5 +1,8 @@
 package sabokan.game;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.logging.Formatter;
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -35,9 +38,6 @@ public class Trace {
 
                 @Override
                 public String format(LogRecord record) {
-                    if (record.getThrown() != null) {
-                        record.getThrown().printStackTrace(System.err);
-                    }
                     if (record.getLevel() == Level.SEVERE) {
                         return "ERROR: " + record.getMessage() + "\n";
                     } else {
@@ -59,7 +59,6 @@ public class Trace {
                 public String getTail(Handler h) {
                     return "";
                 }
-                
             });
         }
 
@@ -84,15 +83,30 @@ public class Trace {
     private Trace() {
     }
 
+    /**
+     * Traces a message as info
+     * @param msg
+     */
     public static void info(String msg) {
         log.log(Level.INFO, msg);
     }
 
+    /**
+     * Traces a message as error
+     * @param msg
+     */
     public static void error(String msg) {
         log.log(Level.SEVERE, msg);
     }
-    
+
+    /**
+     * Delegates the stacktrace to error(String msg)
+     * @param ex
+     */
     public static void error(Throwable ex) {
-        log.log(Level.SEVERE, "", ex);
+        final Writer result = new StringWriter();
+        final PrintWriter printWriter = new PrintWriter(result);
+        ex.printStackTrace(printWriter);
+        error(result.toString());
     }
 }

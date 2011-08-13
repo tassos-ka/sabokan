@@ -7,7 +7,7 @@ import java.awt.LayoutManager;
 import java.awt.event.KeyListener;
 import java.io.File;
 import javax.swing.JPanel;
-import sabokan.game.core.SokobanGame;
+import sabokan.game.core.SabokanGame;
 
 /**
  * The main Panel where the Game is COncerned
@@ -20,7 +20,7 @@ public class GamePanel extends JPanel {
     /**
      * The actual game instance
      */
-    private SokobanGame game;
+    private SabokanGame game;
 
     public GamePanel() {
         initGamePanel();
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel {
      * Constructs the game
      */
     private void initGamePanel() {
-        game = new SokobanGame(this);
+        game = new SabokanGame(this);
         this.setFocusable(true);
     }
 

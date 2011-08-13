@@ -3,7 +3,7 @@ package sabokan.game.events;
 import sabokan.game.utils.DialogCarrier;
 
 /**
- *
+ * Raised when the player should initiate chatting
  * @author anaka
  */
 public class DialogEvent extends Exception {

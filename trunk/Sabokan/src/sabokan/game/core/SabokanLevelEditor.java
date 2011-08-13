@@ -15,7 +15,7 @@ import sabokan.game.entities.players.Player;
  *
  * @author anaka
  */
-public class SokobanLevelEditor {
+public class SabokanLevelEditor {
 
     private Player player;
     private List<Box> boxes;
@@ -24,7 +24,7 @@ public class SokobanLevelEditor {
     private EditableLevel level;
     private final EditorPanel container;
 
-    public SokobanLevelEditor(EditorPanel container) {
+    public SabokanLevelEditor(EditorPanel container) {
         if (container != null) {
             Trace.info("Started");
             this.container = container;
