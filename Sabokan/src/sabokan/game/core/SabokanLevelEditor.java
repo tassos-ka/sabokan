@@ -46,7 +46,7 @@ public class SabokanLevelEditor {
         characters = level.initCharacters();
         Trace.info("Characters initialized");
         items = level.initItems();
-        Trace.info("Characters initialized");
+        Trace.info("Items initialized");
         repaint();
     }
 

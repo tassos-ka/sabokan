@@ -17,7 +17,7 @@ import java.util.logging.StreamHandler;
  */
 public class Trace {
 
-    private static final Logger log = Logger.getLogger("Sokoban");
+    private static final Logger log = Logger.getLogger("Sakoban");
 
     static {
         for (Handler hand : log.getHandlers()) {

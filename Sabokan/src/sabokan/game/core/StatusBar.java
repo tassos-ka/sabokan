@@ -97,8 +97,8 @@ public class StatusBar {
             } else {
                 y = 150;
             }
-            g.drawImage(item.getTexture(), x, y, null);
-            g.drawString("x" + inventory.quantityOf(item), x - 15 + Constants.IMAGE_WIDTH, y + 75);
+            g.drawImage(item.getTexture(), x, y, Constants.ORIGINAL_IMAGE_WIDTH / 2, Constants.ORIGINAL_IMAGE_HEIGHT /2,  null);
+            g.drawString("x" + inventory.quantityOf(item), x - 15 + Constants.ORIGINAL_IMAGE_WIDTH/2, y + 75);
         }
     }
 
@@ -114,8 +114,8 @@ public class StatusBar {
         int y = -Constants.OFFSET + 5;
 
         for (Item item : inventory.getNotUsableItems()) {
-            g.drawImage(item.getTexture(), x, y, null);
-            x += Constants.IMAGE_WIDTH + 10;
+            g.drawImage(item.getTexture(), x, y, Constants.ORIGINAL_IMAGE_WIDTH / 2, Constants.ORIGINAL_IMAGE_HEIGHT /2,  null);
+            x += Constants.ORIGINAL_IMAGE_WIDTH/2 + 10;
             g.drawString("x" + inventory.quantityOf(item), x, height);
             x += 120;
         }

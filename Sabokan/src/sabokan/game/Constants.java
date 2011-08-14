@@ -20,6 +20,14 @@ public final class Constants {
      */
     private static final float SCALE = 0.5f;
     /**
+     * The original height of all textures
+     */
+    public static final int ORIGINAL_IMAGE_HEIGHT = 171;
+    /**
+     * The original width of all textures
+     */
+    public static final int ORIGINAL_IMAGE_WIDTH = 101;
+    /**
      * The tile width based on the scale
      */
     public static final int DX = (int) (100 * SCALE); //100 pixels default
@@ -30,11 +38,11 @@ public final class Constants {
     /**
      * The height of all textures
      */
-    public static final int IMAGE_HEIGHT = (int) (171 * SCALE);
+    public static final int IMAGE_HEIGHT = (int) (ORIGINAL_IMAGE_HEIGHT * SCALE);
     /**
      * The width of all textures
      */
-    public static final int IMAGE_WIDTH = (int) (101 * SCALE);
+    public static final int IMAGE_WIDTH = (int) (ORIGINAL_IMAGE_WIDTH * SCALE);
     /**
      * The height of the rendered status bar
      */
