@@ -22,7 +22,7 @@ public abstract class EditableLevel extends Level {
     private Point selected = new Point();
     private static final Color selectedColor = new Color(255, 125, 0, 90);
     private static final Color unselectedColor = new Color(0, 0, 0, 10);
-    
+
     @Override
     public List<Box> initBoxes() {
         return boxes;
@@ -48,7 +48,7 @@ public abstract class EditableLevel extends Level {
     protected Tile[][] initializeLevel() {
         return new Tile[size][size];
     }
-    
+
     public void setTileAt(Point p, Tile tile) {
         setTileAt(p.x, p.y, tile);
     }
@@ -59,15 +59,15 @@ public abstract class EditableLevel extends Level {
             level[x][y] = tile;
         }
     }
-    
+
     public void addItem(Item item) {
         this.items.add(item);
     }
-    
+
     public void addBox(Box box) {
         this.boxes.add(box);
     }
-    
+
     public void addCharacter(Char character) {
         this.characters.add(character);
     }
@@ -83,29 +83,24 @@ public abstract class EditableLevel extends Level {
         for (Tile[] row : level) { //painting
             for (Tile tile : row) {
                 if (tile != null) {
-                    g.drawImage(tile.getTexture(), x, y, null); 
+                    g.drawImage(tile.getTexture(), x, y, null);
                 }
-                renderTileBorder(x, y, false, unselectedColor, g);
+                renderTileBorder(x, y, unselectedColor, g);
                 y += Constants.DY;
             }
             y = 0;
             x += Constants.DX;
         }
-        
-        renderTileBorder(selected.x, selected.y, true, selectedColor, g);
-       
+
+        renderTileBorder(selected.x * Constants.DX, selected.y * Constants.DY, selectedColor, g);
     }
 
     public Point getSelected() {
         return selected;
     }
 
-    private void renderTileBorder(int x, int y, boolean isSelected, Color color, Graphics2D g) {
+    private void renderTileBorder(int x, int y, Color color, Graphics2D g) {
         g.setPaint(color);
-        if (isSelected) {  
-            g.fill3DRect(selected.x * Constants.DX, selected.y * Constants.DY, Constants.IMAGE_WIDTH, Constants.IMAGE_HEIGHT, true);
-        } else {
-            g.fill3DRect(x, y, Constants.IMAGE_WIDTH, Constants.IMAGE_HEIGHT, true);
-        }
+        g.fill3DRect(x, y + Constants.DY / 2, Constants.IMAGE_WIDTH, Constants.IMAGE_HEIGHT / 2, true);
     }
 }
